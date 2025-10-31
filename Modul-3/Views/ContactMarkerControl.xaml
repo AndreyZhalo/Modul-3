@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Modul_3.Views.ContactMarkerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="{Binding Diameter}" 
+             Height="{Binding Diameter}">
+    <Grid>
+        <Ellipse x:Name="MarkerEllipse"
+                 Fill="#FF4CAF50"
+                 Stroke="White"
+                 StrokeThickness="2"
+                 Cursor="Hand">
+            <Ellipse.Style>
+                <Style TargetType="Ellipse">
+                    <Setter Property="Fill" Value="#FF4CAF50"/>
+                    <Setter Property="Stroke" Value="White"/>
+                    <Setter Property="StrokeThickness" Value="2"/>
+                    <Setter Property="Opacity" Value="0.8"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Fill" Value="#FFFF9800"/>
+                            <Setter Property="Stroke" Value="Red"/>
+                            <Setter Property="StrokeThickness" Value="3"/>
+                            <Setter Property="Opacity" Value="1.0"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Ellipse.Style>
+        </Ellipse>
+
+        <TextBlock Text="{Binding ContactNumber}" 
+                   Foreground="White" 
+                   FontWeight="Bold"
+                   FontSize="10"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   IsHitTestVisible="False"/>
+
+        <!-- Визуальные элементы для изменения размера (видны только при выборе) -->
+        <Rectangle x:Name="ResizeHandle"
+                   Width="8"
+                   Height="8"
+                   Fill="White"
+                   Stroke="Black"
+                   StrokeThickness="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Cursor="SizeNWSE"
+                   IsHitTestVisible="True"
+                   Visibility="Collapsed">
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+    </Grid>
+</UserControl>

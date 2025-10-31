@@ -13,7 +13,7 @@ namespace Modul_3.Views
     public partial class  ControlWindow : Window
     {
         private ControlViewModel ViewModel => (ControlViewModel)DataContext;
-        private Dictionary<ContactMarker, ContactMarkerControl> _markerControls = new Dictionary<ContactMarker, ContactMarkerControl>();
+        private Dictionary<ContactMarker, ContactControl> _markerControls = new Dictionary<ContactMarker, ContactControl>();
 
         // Фиксированные размеры изображения
         private const double ImageWidth = 800;
@@ -60,7 +60,7 @@ namespace Modul_3.Views
                 // Добавляем новые маркеры
                 foreach (var marker in ViewModel.Markers)
                 {
-                    var markerControl = new ContactMarkerControl();
+                    var markerControl = new ContactControl();
                     markerControl.DataContext = marker;
 
                     // Устанавливаем позицию на основе относительных координат
@@ -79,7 +79,7 @@ namespace Modul_3.Views
             }
         }
 
-        private void UpdateMarkerPosition(ContactMarker marker, ContactMarkerControl control)
+        private void UpdateMarkerPosition(ContactMarker marker, ContactControl control)
         {
             // Вычисляем абсолютные координаты на основе относительных и фиксированного размера изображения
             double absoluteX = (marker.RelativeX * ImageWidth) - (control.Width / 2);

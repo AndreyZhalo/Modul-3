@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Modul_3.Views.ContactControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="{Binding Diameter}" 
+             Height="{Binding Diameter}">
+    <Grid>
+        <Ellipse x:Name="MarkerEllipse"
+                 Fill="Green"
+                 Stroke="White"
+                 StrokeThickness="2"
+                 Cursor="Arrow">
+            <Ellipse.Style>
+                <Style TargetType="Ellipse">
+                    <Setter Property="Fill" Value="Green"/>
+                    <Setter Property="Stroke" Value="White"/>
+                    <Setter Property="StrokeThickness" Value="2"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Fill" Value="#FFFF9800"/>
+                            <Setter Property="Stroke" Value="Red"/>
+                            <Setter Property="StrokeThickness" Value="3"/>
+                            <Setter Property="Opacity" Value="1.0"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                            <Setter Property="Fill" Value="#FF2196F3"/>
+                            <Setter Property="Stroke" Value="Blue"/>
+                            <Setter Property="StrokeThickness" Value="3"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Ellipse.Style>
+        </Ellipse>
+
+        <!--  <TextBlock Text="{Binding ContactNumber}" 
+                   Foreground="White" 
+                   FontWeight="Bold"
+                   FontSize="10"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   IsHitTestVisible="False"/>
+
+        Индикатор состояния (опционально) 
+        <Ellipse Width="6"
+                 Height="6"
+                 Fill="LightGreen"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Margin="2"
+                 Visibility="{Binding IsActive, Converter={StaticResource BooleanToVisibilityConverter}}"/> -->
+    </Grid>
+</UserControl>

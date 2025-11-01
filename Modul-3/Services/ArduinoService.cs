@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Modul_3.Services
 {
-    public class ArduinoService : INotifyPropertyChanged
+    public class ArduinoService : INotifyPropertyChanged, IDisposable
     {
         private SerialPort _serialPort;
         private CancellationTokenSource _cancellationTokenSource;
@@ -16,6 +16,23 @@ namespace Modul_3.Services
         public event Action<bool[]> ContactsStateChanged;
         public event Action<string> MessageReceived;
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public void Dispose()
+        {
+            _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource?.Dispose();
+
+            if (_serialPort != null)
+            {
+                if (_serialPort.IsOpen)
+                {
+                    _serialPort.Close();
+                }
+                _serialPort.Dispose();
+                _serialPort = null;
+            }
+        }
 
         public bool IsConnected
         {

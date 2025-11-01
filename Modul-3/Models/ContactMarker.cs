@@ -12,6 +12,21 @@ namespace Modul_3.Models
         private double _relativeX;
         private double _relativeY;
         private double _diameter = 30;
+        private bool _isActive;
+
+
+        public bool IsActive
+        {
+            get => _isActive;
+            set
+            {
+                if (_isActive != value)
+                {
+                    _isActive = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public int ContactNumber
         {

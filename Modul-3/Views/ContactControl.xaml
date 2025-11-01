@@ -11,20 +11,21 @@
                  Cursor="Arrow">
             <Ellipse.Style>
                 <Style TargetType="Ellipse">
-                    <Setter Property="Fill" Value="Green"/>
+                    <Setter Property="Fill" Value="#FF4CAF50"/>
                     <Setter Property="Stroke" Value="White"/>
                     <Setter Property="StrokeThickness" Value="2"/>
+                    <Setter Property="Opacity" Value="0.8"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsSelected}" Value="True">
                             <Setter Property="Fill" Value="#FFFF9800"/>
                             <Setter Property="Stroke" Value="Red"/>
                             <Setter Property="StrokeThickness" Value="3"/>
-                            <Setter Property="Opacity" Value="1.0"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsActive}" Value="True">
-                            <Setter Property="Fill" Value="#FF2196F3"/>
-                            <Setter Property="Stroke" Value="Blue"/>
+                            <Setter Property="Fill" Value="#FFF44336"/>
+                            <Setter Property="Stroke" Value="Yellow"/>
                             <Setter Property="StrokeThickness" Value="3"/>
+                            <Setter Property="Opacity" Value="1.0"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -37,15 +38,15 @@
                    FontSize="10"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   IsHitTestVisible="False"/>
+                   IsHitTestVisible="False"/> -->
 
-        Индикатор состояния (опционально) 
-        <Ellipse Width="6"
+        <!--Индикатор состояния (опционально)--> 
+        <!--<Ellipse Width="6"
                  Height="6"
                  Fill="LightGreen"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Top"
                  Margin="2"
-                 Visibility="{Binding IsActive, Converter={StaticResource BooleanToVisibilityConverter}}"/> -->
+                 Visibility="{Binding IsActive, Converter={StaticResource BooleanToVisibilityConverter}}"/>--> 
     </Grid>
 </UserControl>

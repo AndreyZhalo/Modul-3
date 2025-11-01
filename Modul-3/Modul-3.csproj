@@ -91,6 +91,7 @@
     <Compile Include="Converters\MarkersConverter.cs" />
     <Compile Include="Models\ContactMarker.cs" />
     <Compile Include="Models\LayoutData.cs" />
+    <Compile Include="Services\ArduinoService.cs" />
     <Compile Include="Services\ProductCatalogLoader.cs" />
     <Compile Include="ViewModels\ControlViewModel.cs" />
     <Compile Include="ViewModels\EditorViewModel.cs" />
